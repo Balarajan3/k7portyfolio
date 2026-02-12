@@ -1,51 +1,74 @@
+import React from 'react';
+import { ArrowRight, Download } from 'lucide-react';
+import { motion } from 'framer-motion';
+
 const Hero = () => {
-  return (
-    <section className="relative overflow-hidden bg-[#fafafa]">
-      {/* Gradient Blurs */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-purple-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-50/50 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3 pointer-events-none" />
+    return (
+        <section className="relative w-full py-20 lg:py-24 flex items-center justify-center bg-[#FCFDFF] overflow-hidden px-6 lg:px-12">
+            {/* Very subtle background blob for depth */}
+            <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-purple-50/50 blur-[120px] -z-10" />
 
-      <div className="relative w-full px-6 md:px-12 lg:px-[120px] py-16 md:py-32 grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
-        {/* Left Content */}
-        <div className="max-w-2xl">
-          <h1 className="text-5xl md:text-7xl font-bold text-black leading-[1.1] tracking-tight">
-            Hello, I’m <br />
-            <span className="block text-[#9929fb]">Brooklyn Gilbert</span>
-          </h1>
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+                {/* Left Content */}
+                <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="flex flex-col items-start text-left"
+                >
+                    <span className="text-indigo-600 font-medium text-lg mb-2">
+                        Welcome to my portfolio
+                    </span>
 
-          <p className="mt-8 text-xl text-gray-500 leading-relaxed font-normal">
-            I'm a Freelance UI/UX Designer and Developer based in London, England.
-            I strive to build immersive and beautiful web applications through carefully crafted code and user-centric design.
-          </p>
+                    <h1 className="text-5xl sm:text-6xl lg:text-[76px] font-bold tracking-tight text-slate-900 leading-[1.1] mb-6">
+                        Hello, I'm <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Kesavan</span>
+                    </h1>
 
-          <div className="mt-10 flex gap-4">
-            <button className="bg-[#9929fb] text-white px-9 py-4 rounded font-medium text-lg shadow-xl shadow-purple-200 hover:bg-purple-700 transition hover:-translate-y-1">
-              Say Hello!
-            </button>
-            <button className="bg-transparent text-black border border-gray-200 px-9 py-4 rounded font-medium text-lg hover:border-[#9929fb] hover:text-[#9929fb] transition">
-              My Works
-            </button>
-          </div>
+                    <h2 className="text-xl sm:text-2xl text-slate-600 font-medium max-w-lg leading-snug mb-8">
+                        UI/UX Designer crafting simple, usable, and scalable digital experiences
+                    </h2>
 
-          <div className="mt-16 flex items-center gap-8 text-gray-400">
-            {/* Social placeholders if needed, currently kept minimal */}
-          </div>
-        </div>
+                    <p className="text-slate-500 text-base sm:text-[17px] leading-relaxed max-w-xl mb-10 font-normal">
+                        I'm a UI/UX Designer with 3+ years of hands-on experience designing user-friendly web and mobile applications. I specialize in transforming complex business requirements into clean, intuitive, and functional interfaces that enhance user experience and support business goals.
+                    </p>
 
-        {/* Right Image */}
-        <div className="flex justify-center lg:justify-end relative">
-          {/* Decorative element behind image */}
-          <div className="absolute inset-0 bg-[#9929fb] rotate-6 rounded-[3rem] opacity-5 scale-95 z-0" />
+                    <div className="flex flex-wrap items-center gap-5">
+                        <button className="flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 text-base">
+                            <Download className="w-5 h-5" />
+                            <span>See My Resume CV</span>
+                        </button>
 
-          <img
-            src="/hero.jpg"
-            alt="Brooklyn Gilbert"
-            className="relative z-10 w-[380px] lg:w-[480px] rounded-[3rem] shadow-2xl object-cover"
-          />
-        </div>
-      </div>
-    </section>
-  );
+                        <button className="flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-slate-700 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 shadow-sm transition-all group text-base">
+                            <span>View My Work</span>
+                            <ArrowRight className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform" />
+                        </button>
+                    </div>
+                </motion.div>
+
+                {/* Right Image */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                    className="relative flex justify-center lg:justify-end"
+                >
+                    <div className="relative w-full max-w-[540px] aspect-square">
+                        {/* Simple Image Container - No Background Card */}
+                        <div className="relative w-full h-full rounded-[3rem] overflow-hidden shadow-2xl bg-slate-50">
+                            <img
+                                src="https://images.unsplash.com/photo-1542596594-649edbc13630?q=80&w=2774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Kesavan Portrait"
+                                className="w-full h-full object-cover object-center"
+                            />
+                            {/* Slight overlay for tone matching */}
+                            <div className="absolute inset-0 bg-brand/10 mix-blend-overlay" />
+                        </div>
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
 };
 
 export default Hero;
